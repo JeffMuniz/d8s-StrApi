@@ -3,11 +3,14 @@
 [Command Line Interface](
 docker build -t jmuniz1985/app-dev:latest .
 docker run -p 1337:1337 -t jmuniz1985/app-dev:latest
+# upload image to dcr.io/jmuniz1985/app-dev:latest
 docker push jmuniz1985/app-dev:latest 
 
-dcr.io/jmuniz1985/app-dev:latest
+#testar API
 
-
+curl -X GET "http://34.133.130.242:1337/api/cadastros"\
+ -H "Content-Type: application/json" -H "accept: application/json" -H \
+ "Authorization: Bearer 92ea49a61ffca76eedbf50e90052b6d43bec3fa27bafedfd5f2f38e7b7af7c9646bdef4f3b6820eea008cec861a4c0d29b5e7f3bacaf34e37ec176913fa8df061c927e530dc2eb8d0ce449fd15ccd900334c65ccdd1806e731bfc16e0eecff44c7ca771b39ba6a9498be150a4ad369dc38ca6e43ca2895860bde39c665e83290"
 
 docker push jmuniz1985/app-dev:latest
 docker-compose build
@@ -19,17 +22,12 @@ docker push jmuniz1985/app-dev:latest
 docker images
 docker tag dd6675b5cfea jmuniz1985/app-devdb:latest
 docker push jmuniz1985/app-devdb:latest
-docker tag dd6675b5cfea jmuniz1985/mysql:5.7
-docker push jmuniz1985/mysql:5.7
-
-docker push jmuniz1985/mysql:5.7
+docker tag dd6675b5cfea  
+ 
 
 
-) (CLI) which lets you scaffold and manage your project in seconds.
 
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+### LoadBalancer is a convenient way to expose a Service to the internet 
 
 ```
 npm run develop
