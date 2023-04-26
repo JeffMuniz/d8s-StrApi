@@ -1,6 +1,31 @@
-# 🚀 Getting started with Strapi
+# 🚀 Getting started with this containers
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+[Command Line Interface](
+docker build -t jmuniz1985/app-dev:latest .
+docker run -p 1337:1337 -t jmuniz1985/app-dev:latest
+docker push jmuniz1985/app-dev:latest 
+
+dcr.io/jmuniz1985/app-dev:latest
+
+
+
+docker push jmuniz1985/app-dev:latest
+docker-compose build
+docker-compose create 
+docker-compose start
+docker-compose up -d
+docker push jmuniz1985/app-dev:latest
+
+docker images
+docker tag dd6675b5cfea jmuniz1985/app-devdb:latest
+docker push jmuniz1985/app-devdb:latest
+docker tag dd6675b5cfea jmuniz1985/mysql:5.7
+docker push jmuniz1985/mysql:5.7
+
+docker push jmuniz1985/mysql:5.7
+
+
+) (CLI) which lets you scaffold and manage your project in seconds.
 
 ### `develop`
 
