@@ -47,17 +47,15 @@ kubectl get services balanced <br>
 
 ## 🚀 Deploy to gke low cost k8s (so expose to internet)
 
-gcloud container clusters get-credentials sample-cluster --location=us-central1-f
-gcloud desafio app clusters get-credentials
-#gcloud auth configure-docker
-gcloud auth configure-gke
-gcloud container clusters get-credentials desafio --zone us-central1-c --project strapi-384603
+gcloud container clusters get-credentials sample-cluster --location=us-central1-f  <br>
+gcloud desafio app clusters get-credentials <br>
+#gcloud auth configure-docker <br>
+gcloud auth configure-gke <br>
+gcloud container clusters get-credentials desafio --zone us-central1-c --project strapi-384603 <br>
 
-kubectl apply -f /manifests/app-dev.yaml
-kubectl apply -f /manifests/app-dev-service.yaml
-kubectl apply -f
-kubectl apply -f
-kubectl apply -f
+kubectl apply -f /manifests/app-dev.yaml <br>
+kubectl apply -f /manifests/app-dev-service.yaml <br>
+
 <br>
 
 # ✨ Check out app Web GUI and API
