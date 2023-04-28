@@ -1,12 +1,10 @@
-# 🚀 Strapi Docker and Kubernetes Deployment Ma
-  Let's explore 2 models. First a simple and fast deploy, wihth strapi and database at the same machine - Develop -
+# 🚀 Strapi Docker and Kubernetes Deployment Magnum DevOps Challenge
+  Let's explore 2 models. First a simple and fast deploy, wihth strapi and database at the same machine - Develop Done here 
+   - To the future:
   Second one will deploy strapi to one server and a db mysql to another server separeted, though at same network - Production   
   
-
 ## ⚙️ Deployment Develop
-
 Deploy Docker Develop ! DO NOT use "@" as part of your docker-hub password
-
 [* Please reffer to the end of file to install all the tools]()
 - Setting Your-Account/You-Repository/image-name:tag <br>
 $User = "user" <br>
@@ -20,39 +18,34 @@ docker run -d -p 1337:1337 -t $DOCKER_IMAGE <br>
 - upload image to docker hub docker hub if it's OK <br>
 docker push $DOCKER_IMAGE <br>
  <br>
-
 ## 📚 Minikube Deploy for develop envirorment - 
 [* Make your life easier by adding this line to your shell config:]() <br>
  - Linux <br>
 set alias kube="minikube kubectl --" <br>
  - Windows <br>
 alias kube="minikube kubectl --" <br>
- - Create a  deployment and expose it on port 80 & 443:
+ - Create a  deployment and expose it on port 80 :
 minikube start <br>
-kubectl create deployment app-dev --image=jmuniz1985/app-dev:latest <br>
+kubectl create deployment app-dev --image=jmuniz1985/app-dev <br>
 kubectl expose deployment app-dev --type=LoadBallancer --port=80 <br>
-kubectl expose deployment app-dev --type=LoadBallancer --port=443 <br>
 
 ###### #--type= 1 - Cluster IP: Accessible from within the Kubernetes cluster 2 - NodePort: Accessible from a Service outside the cluster, a Web browser or from another server 3 - LoadBalancer: Accessible from all other Networks eg. Internet 
- - kubectl port-forward service/app-dev 80:80 <br>
+ - kubectl port-forward service/app-dev 80:137 <br>
 minikube service app-dev <br>
 <br>
-kubectl create deployment app-dev --image=jmuniz1985/app-dev:latest <br>
-kubectl port-forward service/app-dev 443:443 <br>
- <br>
- <br><br>
 
-# Expose to Internet Check everything
+## 🤫 Expose to Internet and Check everything
 kubectl get services app-dev <br>
 kubectl cluster-info dump <br>
 kubectl get pod -A <br>
  - In another window, start the tunnel to create a routable IP for the ‘balanced’ deployment: <br>
 nohup minikube tunnel &&
  - To get the Routable IP, run this command and examine the EXTERNAL-IP column: <br>
-kubectl get services balanced
+kubectl get services balanced <br>
 
+ <br>
 
-## Deploy to gke low cost k8s (so expose to internet)
+## 🚀 Deploy to gke low cost k8s (so expose to internet)
 
 gcloud container clusters get-credentials sample-cluster --location=us-central1-f
 gcloud desafio app clusters get-credentials
@@ -65,7 +58,7 @@ kubectl apply -f /manifests/app-dev-service.yaml
 kubectl apply -f
 kubectl apply -f
 kubectl apply -f
-
+<br>
 
 # ✨ Check out app Web GUI and API
 
@@ -79,7 +72,7 @@ curl -X GET "http://35.222.150.83:1337/api/cadastros"\
 
 
 <br><br>
-
+# To be done
 ## ⚙️ Deployment Production (MySql )
 $DOCKER_IMAGE = "jmuniz1985/app-db:latest"
 docker-compose create
@@ -87,12 +80,16 @@ docker-compose build
 docker-compose start
 docker-compose start
 docker-compose up -d
-# Kill any containers on this image before proceed from here!
-# Capturing image id via scipt as a Variable is to improve this
+ - Kill  containers on this image before proceed# Capturing image id via scipt as a Variable is to improve this
 docker images
 docker tag Your-Image-ID $DOCKER_IMAGE
 docker push $DOCKER_IMAGE
 echo MYSQL_ROOT_PASSWORD=strapi
+
+kubectl create deployment app-dev --image=jmuniz1985/app-db:latest <br>
+kubectl port-forward service/app-dev 443:443 <br>
+ <br>
+ <br><br>
 <sub>
 🤫 @!POSTMAN will only work with content-type on POST requests [Strapi is hiring](https://forum.strapi.io/t/post-url-is-not-working/18749/5) - I was sending data like this as in the tutorial but got the error (# error sending Body):  </sub>
 {
