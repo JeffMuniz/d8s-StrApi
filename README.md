@@ -1,4 +1,4 @@
-# 🚀 Strapi Docker and Kubernetes Deployment Magnum DevOps Challenge
+# 🚀 Strapi Docker and Kubernetes Deployment DevOps Challenge
   Let's explore 2 models. First a simple and fast deploy, wihth strapi and database at the same machine - Develop Done here 
    - To the future:
   Second one will deploy strapi to one server and a db mysql to another server separeted, though at same network - Production   
