@@ -1,3 +1,9 @@
+https://strapi.io/
+A content management system (CMS) is a computer software used to manage the creation and modification of digital content1. It is often abbreviated as CMS and helps users create, manage, and modify content on a website without the need for specialized technical knowledge2.
+https://github.com/strapi/strapi
+
+![alt text](image.png)
+
 # 🚀 Strapi Docker and Kubernetes Deployment DevOps Challenge
   Let's explore 2 models. First a simple and fast deploy, wihth strapi and database at the same machine - Develop Done here 
    - To the future:
