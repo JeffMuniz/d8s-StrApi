@@ -1,219 +1,162 @@
-https://strapi.io/
-A content management system (CMS) is a computer software used to manage the creation and modification of digital content1. It is often abbreviated as CMS and helps users create, manage, and modify content on a website without the need for specialized technical knowledge2.
-https://github.com/strapi/strapi
+<p align="center">
+  <a href="https://strapi.io/#gh-light-mode-only">
+    <img src="https://strapi.io/assets/strapi-logo-dark.svg" width="318px" alt="Strapi logo" />
+  </a>
+  <a href="https://strapi.io/#gh-dark-mode-only">
+    <img src="https://strapi.io/assets/strapi-logo-light.svg" width="318px" alt="Strapi logo" />
+  </a>
+</p>
 
-![alt text](image.png)
+<h3 align="center">Open-source headless CMS, self-hosted or Cloud you’re in control.</h3>
+<p align="center">The leading open-source headless CMS, 100% JavaScript/TypeScript, flexible and fully customizable.</p>
+<p align="center"><a href="https://cloud.strapi.io/signups?source=github1">Cloud</a> · <a href="https://strapi.io/demo?utm_campaign=Growth-Experiments&utm_source=strapi%2Fstrapi%20README.md">Try live demo</a> · <a href="https://strapi.io/five?utm_campaign=Product%20Marketing%20Strapi%205%20Launch%20Q1%20Q2%202024&utm_source=GitHub&utm_medium=strapi%2Fstrapi%20README.md">Strapi 5 (coming soon)</a></p>
+<br />
 
-# 🚀 Strapi Docker and Kubernetes Deployment DevOps Challenge
-  Let's explore 2 models. First a simple and fast deploy, wihth strapi and database at the same machine - Develop Done here 
-   - To the future:
-  Second one will deploy strapi to one server and a db mysql to another server separeted, though at same network - Production   
-  
-## ⚙️ Deployment Develop
-Deploy Docker Develop ! DO NOT use "@" as part of your docker-hub password
-[* Please reffer to the end of file to install all the tools]()
-- Setting Your-Account/You-Repository/image-name:tag
- <br>
-
-$User = "user"
- <br>
-
-$Cred = "password"
- <br>
-
-$DOCKER_IMAGE="jmuniz1985/app-dev:latest"
- <br>
-
-docker login -u $User -p $Cred
- <br>
-
-- Build and Test local image
- <br>
-
-docker build -t $DOCKER_IMAGE .
- <br>
-
-docker run -d -p 1337:1337 -t $DOCKER_IMAGE
- <br>
-
- -  Your browser http://127.0.0.1:1337/admin
- <br>
-
-- upload image to docker hub docker hub if it's OK
- <br>
-
-docker push $DOCKER_IMAGE
- <br>
-
-
- <br>
-
-## 📚 Minikube Deploy for develop envirorment - 
-[* Make your life easier by adding this line to your shell config:]()
- <br>
-
- - Linux
- <br>
-
-set alias kube="minikube kubectl --"
- <br>
-
- - Windows
- <br>
-
-alias kube="minikube kubectl --"
- <br>
-
- - Create a  deployment and expose it on port 80 :
-minikube start
- <br>
-
-kubectl create deployment app-dev --image=jmuniz1985/app-dev
- <br>
-
-kubectl expose deployment app-dev --type=LoadBallancer --port=80
- <br>
-
-
-###### #--type= 1 - Cluster IP: Accessible from within the Kubernetes cluster 2 - NodePort: Accessible from a Service outside the cluster, a Web browser or from another server 3 - LoadBalancer: Accessible from all other Networks eg. Internet 
- - kubectl port-forward service/app-dev 80:137
- <br>
-
-minikube service app-dev
- <br>
+<p align="center">
+  <a href="https://www.npmjs.org/package/@strapi/strapi">
+    <img src="https://img.shields.io/npm/v/@strapi/strapi/latest.svg" alt="NPM Version" />
+  </a>
+  <a href="https://github.com/strapi/strapi/actions/workflows/tests.yml">
+    <img src="https://github.com/strapi/strapi/actions/workflows/tests.yml/badge.svg?branch=main" alt="Tests" />
+  </a>
+  <a href="https://discord.strapi.io">
+    <img src="https://img.shields.io/discord/811989166782021633?label=Discord" alt="Strapi on Discord" />
+  </a>
+  <a href="https://github.com/strapi/strapi/actions/workflows/nightly.yml">
+    <img src="https://github.com/strapi/strapi/actions/workflows/nightly.yml/badge.svg" alt="Strapi Nightly Release Build Status" />
+  </a>
+</p>
 
 <br>
 
-## 🤫 Expose to Internet and Check everything
-kubectl get services app-dev
- <br>
-
-kubectl cluster-info dump
- <br>
-
-kubectl get pod -A
- <br>
-
- - In another window, start the tunnel to create a routable IP for the ‘balanced’ deployment:
- <br>
-
-nohup minikube tunnel &&
- - To get the Routable IP, run this command and examine the EXTERNAL-IP column:
- <br>
-
-kubectl get services balanced
- <br>
-
-
-
- <br>
-
-
-## 🚀 Deploy to gke low cost k8s (so expose to internet)
-
-gcloud container clusters get-credentials sample-cluster --location=us-central1-f 
- <br>
-
-gcloud desafio app clusters get-credentials
- <br>
-
-#gcloud auth configure-docker
- <br>
-
-gcloud auth configure-gke
- <br>
-
-gcloud container clusters get-credentials desafio --zone us-central1-c --project strapi-384603
- <br>
-
-
-kubectl apply -f /manifests/app-dev.yaml
- <br>
-
-kubectl apply -f /manifests/app-dev-service.yaml
- <br>
-
+<p align="center">
+  <a href="https://strapi.io">
+    <img src="https://raw.githubusercontent.com/strapi/strapi/main/public/assets/admin-demo.gif" alt="Administration panel" />
+  </a>
+</p>
 
 <br>
 
-# ✨ Check out app Web GUI and API
+Strapi Community Edition is a free and open-source headless CMS enabling you to manage any content, anywhere.
 
-http://35.222.150.83/admin
+- **Self-hosted or Cloud**: You can host and scale Strapi projects the way you want. You can save time by deploying to [Strapi Cloud](https://cloud.strapi.io/signups?source=github1) or deploy to the hosting platform you want\*\*: AWS, Azure, Google Cloud, DigitalOcean.
+- **Modern Admin Pane**: Elegant, entirely customizable and a fully extensible admin panel.
+- **Multi-database support**: You can choose the database you prefer: PostgreSQL, MySQL, MariaDB, and SQLite.
+- **Customizable**: You can quickly build your logic by fully customizing APIs, routes, or plugins to fit your needs perfectly.
+- **Blazing Fast and Robust**: Built on top of Node.js and TypeScript, Strapi delivers reliable and solid performance.
+- **Front-end Agnostic**: Use any front-end framework (React, Next.js, Vue, Angular, etc.), mobile apps or even IoT.
+- **Secure by default**: Reusable policies, CORS, CSP, P3P, Xframe, XSS, and more.
+- **Powerful CLI**: Scaffold projects and APIs on the fly.
 
-$Auth-Bear =  "Waters"
+## Getting Started
 
-curl -X GET "http://35.222.150.83:1337/api/cadastros"\
- -H "Content-Type: application/json" -H "accept: application/json" -H \
- "Authorization: Bearer "
+<a href="https://docs.strapi.io/developer-docs/latest/getting-started/quick-start.html" target="_blank">Read the Getting Started tutorial</a> or follow the steps below:
 
+### ⏳ Installation
 
-<br><br>
-# To be done
-## ⚙️ Deployment Production (MySql )
-$DOCKER_IMAGE = "jmuniz1985/app-db:latest"
-docker-compose create
-docker-compose build
-docker-compose start
-docker-compose start
-docker-compose up -d
- - Kill  containers on this image before proceed# Capturing image id via scipt as a Variable is to improve this
-docker images
-docker tag Your-Image-ID $DOCKER_IMAGE
-docker push $DOCKER_IMAGE
-echo MYSQL_ROOT_PASSWORD=strapi
+Install Strapi with this **Quickstart** command to create a Strapi project instantly:
 
-kubectl create deployment app-dev --image=jmuniz1985/app-db:latest
- <br>
+- (Use **yarn** to install the Strapi project (recommended). [Install yarn with these docs](https://yarnpkg.com/lang/en/docs/install/).)
 
-kubectl port-forward service/app-dev 443:443
- <br>
+```bash
+yarn create strapi-app my-project --quickstart
+```
 
+**or**
 
- <br>
+- (Use npm/npx to install the Strapi project.)
 
+```bash
+npx create-strapi-app my-project --quickstart
+```
 
- <br>
-<br>
-<sub>
-🤫 @!POSTMAN will only work with content-type on POST requests [Strapi is hiring](https://forum.strapi.io/t/post-url-is-not-working/18749/5) - I was sending data like this as in the tutorial but got the error (# error sending Body):  </sub>
-{
-    "title": "Test product",
-    "description": "test product description.",
-    "price": 99.99,
-    "qty": 20
-}
-Solved the error with this.
- {
-     "data": {
-    "title": "Test product",
-    "description": "test product description.",
-    "price": 99.99,
-    "qty": 20
-    }
-}
+This command generates a brand new project with the default features (authentication, permissions, content management, content type builder & file upload). The **Quickstart** command installs Strapi using a **SQLite** database which is used for prototyping in development.
 
-# Deploy das ferramentas no windows 11
-# Install Chocolatey 
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))                                        
-winget search Microsoft.PowerShell winget install --id Microsoft.Powershell --source winget winget install --id Microsoft.Powershell.Preview --source winget    
-choco install nodejs-lts yarn minikube docker-desktop terraform gcloudsdk  -y
+Enjoy 🎉
 
-### Instal and configure WSL 
-[Learn more](<br> 
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-wsl --set-default-version 2
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-wget https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-wsl_update_x64.msi
-#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-### Instal and configure compose if you receive a error
-#Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-Windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe)
+### 🖐 Requirements
 
+Complete installation requirements can be found in the documentation under <a href="https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html">Installation Requirements</a>.
 
-documentation
-gdk gke
-https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials    
-docker strapi
-https://docs.strapi.io/dev-docs/installation/docker
+**Supported operating systems**:
 
+- Ubuntu LTS/Debian 9.x
+- CentOS/RHEL 8
+- macOS Mojave
+- Windows 10
+- Docker
 
+(Please note that Strapi may work on other operating systems, but these are not tested nor officially supported at this time.)
+
+**Node:**
+
+Strapi only supports maintenance and LTS versions of Node.js. Please refer to the <a href="https://nodejs.org/en/about/releases/">Node.js release schedule</a> for more information. NPM versions installed by default with Node.js are supported. Generally it's recommended to use yarn over npm where possible.
+
+| Strapi Version  | Recommended | Minimum |
+| --------------- | ----------- | ------- |
+| 4.14.5 and up   | 20.x        | 18.x    |
+| 4.11.0 and up   | 18.x        | 16.x    |
+| 4.3.9 to 4.10.x | 18.x        | 14.x    |
+| 4.0.x to 4.3.8  | 16.x        | 14.x    |
+
+**Database:**
+
+| Database   | Recommended | Minimum |
+| ---------- | ----------- | ------- |
+| MySQL      | 8.0         | 5.7.8   |
+| MariaDB    | 10.6        | 10.3    |
+| PostgreSQL | 14.0        | 11.0    |
+| SQLite     | 3           | 3       |
+
+**We recommend always using the latest version of Strapi stable to start your new projects**.
+
+## Features
+
+- **Content Types Builder**: Build the most flexible publishing experience for your content managers, by giving them the freedom to create any page on the go with [fields](https://docs.strapi.io/user-docs/content-manager/writing-content#filling-up-fields), components and [Dynamic Zones](https://docs.strapi.io/user-docs/content-manager/writing-content#dynamic-zones).
+- **Media Library**: Upload your images, videos, audio or documents to the media library. Easily find the right asset, edit and reuse it.
+- **Internationalization**: The Internationalization (i18n) plugin allows Strapi users to create, manage and distribute localized content in different languages, called "locales"
+- **Role Based Access Control**: Create an unlimited number of custom roles and permissions for admin and end users.
+- **GraphQL or REST**: Consume the API using REST or GraphQL
+
+You can unlock additional features such as SSO, Audit Logs, Review Workflows in [Strapi Cloud](https://cloud.strapi.io/login?source=github1) or [Strapi Enterprise](https://strapi.io/enterprise?source=github1).
+
+**[See more on our website](https://strapi.io/overview)**.
+
+## Contributing
+
+Please read our [Contributing Guide](./CONTRIBUTING.md) before submitting a Pull Request to the project.
+
+## Community support
+
+For general help using Strapi, please refer to [the official Strapi documentation](https://docs.strapi.io). For additional help, you can use one of these channels to ask a question:
+
+- [Discord](https://discord.strapi.io) (For live discussion with the Community and Strapi team)
+- [GitHub](https://github.com/strapi/strapi) (Bug reports, Contributions)
+- [Community Forum](https://forum.strapi.io) (Questions and Discussions)
+- [Feedback section](https://feedback.strapi.io) (Roadmap, Feature requests)
+- [Twitter](https://twitter.com/strapijs) (Get the news fast)
+- [Facebook](https://www.facebook.com/Strapi-616063331867161)
+- [YouTube Channel](https://www.youtube.com/strapi) (Learn from Video Tutorials)
+
+## Migration
+
+Follow our [migration guides](https://docs.strapi.io/developer-docs/latest/update-migration-guides/migration-guides.html) on the documentation to keep your projects up-to-date.
+
+## Roadmap
+
+Check out our [roadmap](https://feedback.strapi.io) to get informed of the latest features released and the upcoming ones. You may also give us insights and vote for a specific feature.
+
+## Documentation
+
+See our dedicated [repository](https://github.com/strapi/documentation) for the Strapi documentation, or view our documentation live:
+
+- [Developer docs](https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html)
+- [User guide](https://docs.strapi.io/user-docs/latest/getting-started/introduction.html)
+
+## Try live demo
+
+See for yourself what's under the hood by getting access to a [hosted Strapi project](https://strapi.io/demo) with sample data.
+
+## License
+
+See the [LICENSE](./LICENSE) file for licensing information.
