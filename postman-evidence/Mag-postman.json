@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "f4c75fd7-1776-4eda-b97d-19e7780c56bc",
+		"name": "Ben",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20147274"
+	},
+	"item": [
+		{
+			"name": "apis-ben-staging-v2.devcdt.com.br",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-length": true,
+					"host": true,
+					"user-agent": true,
+					"accept-encoding": true,
+					"connection": true,
+					"accept": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "14c27c8e9cdf1d13bd9cca6026e1c991bcfbf02af829dc6036dc3cac1024ac41344c67314cb274a365e1508aa60ab9d21f7e2bc53c9d911611cca9c4cb2fad9888b9cd73f8ae19fe8da3678cafa3e20d6e8fefe411953f5cb7fb3adde14ec97f81afc1b3a00fb23984f3b84a42d48520174f48ac56e2f692159da4e6279d308f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:1337/api/cadastros",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"cadastros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post-cpf",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept-encoding": true,
+					"host": true,
+					"user-agent": true
+				},
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "14c27c8e9cdf1d13bd9cca6026e1c991bcfbf02af829dc6036dc3cac1024ac41344c67314cb274a365e1508aa60ab9d21f7e2bc53c9d911611cca9c4cb2fad9888b9cd73f8ae19fe8da3678cafa3e20d6e8fefe411953f5cb7fb3adde14ec97f81afc1b3a00fb23984f3b84a42d48520174f48ac56e2f692159da4e6279d308f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"data\": {\r\n    \"Nome\": \"Test product\",\r\n    \"Email\": \"jmuniz1985@gmail.com\",\r\n    \"CPF\": 20\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/cadastros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"cadastros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-cpf",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-length": true,
+					"host": true,
+					"user-agent": true,
+					"accept-encoding": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "14c27c8e9cdf1d13bd9cca6026e1c991bcfbf02af829dc6036dc3cac1024ac41344c67314cb274a365e1508aa60ab9d21f7e2bc53c9d911611cca9c4cb2fad9888b9cd73f8ae19fe8da3678cafa3e20d6e8fefe411953f5cb7fb3adde14ec97f81afc1b3a00fb23984f3b84a42d48520174f48ac56e2f692159da4e6279d308f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1337/api/cadastros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"cadastros"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
