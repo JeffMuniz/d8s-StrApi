@@ -1,0 +1,9 @@
+
+galileu@Prodigo:/mnt/d/GitHub/d8s-StrApi$
+galileu@Prodigo:/mnt/d/GitHub/d8s-StrApi$ cd /
+galileu@Prodigo:/$
+ "http:galileu@Prodigo:/$ curl -X GET "http://34.133.130.242:1337/api/cadastros"\
+>  -H "Content-Type: application/json" -H "accept: application/json" -H \
+>  "Authorization: Bearer 92ea49a61ffca76eedbf50e90052b6d43bec3fa27bafedfd5f2f38e7b7af7c9646bdef4f3b6820eea008cec861a4c0d29b5e7f3bacaf34e37ec176913fa8df061c927e530dc2eb8d0ce449fd15ccd900334c65ccdd1806e731bfc16e0eecff44c7ca771b39ba6a9498be150a4ad369dc38ca6e43ca2895860bde39c665e83290"
+{"data":[{"id":1,"attributes":{"Nome":"antes do docker","Email":"jmuniz1985@gmail.com","CPF":123,"createdAt":"2023-04-25T23:19:39.203Z","updatedAt":"2023-04-25T23:19:42.452Z","publishedAt":"2023-04-25T23:19:42.444Z"}},{"id":2,"attributes":{"Nome":"depois docker","Email":"deploy@kube.com","CPF":123,"createdAt":"2023-04-26T04:03:28.635Z","updatedAt":"2023-04-26T04:03:31.360Z","publishedAt":"2023-04-26T04:03:31.350Z"}}],"meta":{"pagination":{"page":1,"pageSize":25,"pageCount":1,"total":2}}}galileu@Prodigo:/$
+galileu@Prodigo:/$
