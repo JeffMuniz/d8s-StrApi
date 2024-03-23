@@ -12,55 +12,127 @@ https://github.com/strapi/strapi
 ## ⚙️ Deployment Develop
 Deploy Docker Develop ! DO NOT use "@" as part of your docker-hub password
 [* Please reffer to the end of file to install all the tools]()
-- Setting Your-Account/You-Repository/image-name:tag <br>
-$User = "user" <br>
-$Cred = "password" <br>
-$DOCKER_IMAGE="jmuniz1985/app-dev:latest" <br>
-docker login -u $User -p $Cred <br>
-- Build and Test local image <br>
-docker build -t $DOCKER_IMAGE . <br>
-docker run -d -p 1337:1337 -t $DOCKER_IMAGE <br>
- -  Your browser http://127.0.0.1:1337/admin <br>
-- upload image to docker hub docker hub if it's OK <br>
-docker push $DOCKER_IMAGE <br>
+- Setting Your-Account/You-Repository/image-name:tag
  <br>
+
+$User = "user"
+ <br>
+
+$Cred = "password"
+ <br>
+
+$DOCKER_IMAGE="jmuniz1985/app-dev:latest"
+ <br>
+
+docker login -u $User -p $Cred
+ <br>
+
+- Build and Test local image
+ <br>
+
+docker build -t $DOCKER_IMAGE .
+ <br>
+
+docker run -d -p 1337:1337 -t $DOCKER_IMAGE
+ <br>
+
+ -  Your browser http://127.0.0.1:1337/admin
+ <br>
+
+- upload image to docker hub docker hub if it's OK
+ <br>
+
+docker push $DOCKER_IMAGE
+ <br>
+
+
+ <br>
+
 ## 📚 Minikube Deploy for develop envirorment - 
-[* Make your life easier by adding this line to your shell config:]() <br>
- - Linux <br>
-set alias kube="minikube kubectl --" <br>
- - Windows <br>
-alias kube="minikube kubectl --" <br>
+[* Make your life easier by adding this line to your shell config:]()
+ <br>
+
+ - Linux
+ <br>
+
+set alias kube="minikube kubectl --"
+ <br>
+
+ - Windows
+ <br>
+
+alias kube="minikube kubectl --"
+ <br>
+
  - Create a  deployment and expose it on port 80 :
-minikube start <br>
-kubectl create deployment app-dev --image=jmuniz1985/app-dev <br>
-kubectl expose deployment app-dev --type=LoadBallancer --port=80 <br>
+minikube start
+ <br>
+
+kubectl create deployment app-dev --image=jmuniz1985/app-dev
+ <br>
+
+kubectl expose deployment app-dev --type=LoadBallancer --port=80
+ <br>
+
 
 ###### #--type= 1 - Cluster IP: Accessible from within the Kubernetes cluster 2 - NodePort: Accessible from a Service outside the cluster, a Web browser or from another server 3 - LoadBalancer: Accessible from all other Networks eg. Internet 
- - kubectl port-forward service/app-dev 80:137 <br>
-minikube service app-dev <br>
+ - kubectl port-forward service/app-dev 80:137
+ <br>
+
+minikube service app-dev
+ <br>
+
 <br>
 
 ## 🤫 Expose to Internet and Check everything
-kubectl get services app-dev <br>
-kubectl cluster-info dump <br>
-kubectl get pod -A <br>
- - In another window, start the tunnel to create a routable IP for the ‘balanced’ deployment: <br>
+kubectl get services app-dev
+ <br>
+
+kubectl cluster-info dump
+ <br>
+
+kubectl get pod -A
+ <br>
+
+ - In another window, start the tunnel to create a routable IP for the ‘balanced’ deployment:
+ <br>
+
 nohup minikube tunnel &&
- - To get the Routable IP, run this command and examine the EXTERNAL-IP column: <br>
-kubectl get services balanced <br>
+ - To get the Routable IP, run this command and examine the EXTERNAL-IP column:
+ <br>
+
+kubectl get services balanced
+ <br>
+
+
 
  <br>
 
+
 ## 🚀 Deploy to gke low cost k8s (so expose to internet)
 
-gcloud container clusters get-credentials sample-cluster --location=us-central1-f  <br>
-gcloud desafio app clusters get-credentials <br>
-#gcloud auth configure-docker <br>
-gcloud auth configure-gke <br>
-gcloud container clusters get-credentials desafio --zone us-central1-c --project strapi-384603 <br>
+gcloud container clusters get-credentials sample-cluster --location=us-central1-f 
+ <br>
 
-kubectl apply -f /manifests/app-dev.yaml <br>
-kubectl apply -f /manifests/app-dev-service.yaml <br>
+gcloud desafio app clusters get-credentials
+ <br>
+
+#gcloud auth configure-docker
+ <br>
+
+gcloud auth configure-gke
+ <br>
+
+gcloud container clusters get-credentials desafio --zone us-central1-c --project strapi-384603
+ <br>
+
+
+kubectl apply -f /manifests/app-dev.yaml
+ <br>
+
+kubectl apply -f /manifests/app-dev-service.yaml
+ <br>
+
 
 <br>
 
@@ -90,10 +162,18 @@ docker tag Your-Image-ID $DOCKER_IMAGE
 docker push $DOCKER_IMAGE
 echo MYSQL_ROOT_PASSWORD=strapi
 
-kubectl create deployment app-dev --image=jmuniz1985/app-db:latest <br>
-kubectl port-forward service/app-dev 443:443 <br>
+kubectl create deployment app-dev --image=jmuniz1985/app-db:latest
  <br>
- <br><br>
+
+kubectl port-forward service/app-dev 443:443
+ <br>
+
+
+ <br>
+
+
+ <br>
+<br>
 <sub>
 🤫 @!POSTMAN will only work with content-type on POST requests [Strapi is hiring](https://forum.strapi.io/t/post-url-is-not-working/18749/5) - I was sending data like this as in the tutorial but got the error (# error sending Body):  </sub>
 {

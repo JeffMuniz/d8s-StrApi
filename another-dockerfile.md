@@ -1,3 +1,40 @@
+# Define a imagem base
+FROM postgres:13.3-alpine
+# Copia o arquivo de inicialização personalizado
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Expõe a porta 80
+EXPOSE 80
+
+# Define a variável de ambiente com a porta a ser utilizada pelo PostgreSQL
+ENV POSTGRES_PORT=80
+
+# Define a variável de ambiente para desativar a solicitação de senha do PostgreSQL
+ENV POSTGRES_HOST_AUTH_METHOD=trust
+
+# Define a variável de ambiente com a senha do superusuário do PostgreSQL
+ENV POSTGRES_PASSWORD=example_password
+
+# Define a variável de ambiente com o nome do banco de dados a ser criado
+ENV POSTGRES_DB=my_database
+
+# Define o comando de inicialização do container
+CMD ["postgres"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 FROM node:18-alpine 
 # Installing libvips-dev for sharp Compatibility 
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev 
