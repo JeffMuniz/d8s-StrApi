@@ -1,139 +1,57 @@
-https://strapi.io/
-A content management system (CMS) is a computer software used to manage the creation and modification of digital content1. It is often abbreviated as CMS and helps users create, manage, and modify content on a website without the need for specialized technical knowledge2.
-https://github.com/strapi/strapi
+# 🚀 Getting started with Strapi
 
-![alt text](image.png)
+Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
 
-# 🚀 Strapi Docker and Kubernetes Deployment DevOps Challenge
-  Let's explore 2 models. First a simple and fast deploy, wihth strapi and database at the same machine - Develop Done here 
-   - To the future:
-  Second one will deploy strapi to one server and a db mysql to another server separeted, though at same network - Production   
-  
-## ⚙️ Deployment Develop
-Deploy Docker Develop ! DO NOT use "@" as part of your docker-hub password
-[* Please reffer to the end of file to install all the tools]()
-- Setting Your-Account/You-Repository/image-name:tag <br>
-$User = "user" <br>
-$Cred = "password" <br>
-$DOCKER_IMAGE="jmuniz1985/app-dev:latest" <br>
-docker login -u $User -p $Cred <br>
-- Build and Test local image <br>
-docker build -t $DOCKER_IMAGE . <br>
-docker run -d -p 1337:1337 -t $DOCKER_IMAGE <br>
- -  Your browser http://127.0.0.1:1337/admin <br>
-- upload image to docker hub docker hub if it's OK <br>
-docker push $DOCKER_IMAGE <br>
- <br>
-## 📚 Minikube Deploy for develop envirorment - 
-[* Make your life easier by adding this line to your shell config:]() <br>
- - Linux <br>
-set alias kube="minikube kubectl --" <br>
- - Windows <br>
-alias kube="minikube kubectl --" <br>
- - Create a  deployment and expose it on port 80 :
-minikube start <br>
-kubectl create deployment app-dev --image=jmuniz1985/app-dev <br>
-kubectl expose deployment app-dev --type=LoadBallancer --port=80 <br>
+### `develop`
 
-###### #--type= 1 - Cluster IP: Accessible from within the Kubernetes cluster 2 - NodePort: Accessible from a Service outside the cluster, a Web browser or from another server 3 - LoadBalancer: Accessible from all other Networks eg. Internet 
- - kubectl port-forward service/app-dev 80:137 <br>
-minikube service app-dev <br>
-<br>
+Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
 
-## 🤫 Expose to Internet and Check everything
-kubectl get services app-dev <br>
-kubectl cluster-info dump <br>
-kubectl get pod -A <br>
- - In another window, start the tunnel to create a routable IP for the ‘balanced’ deployment: <br>
-nohup minikube tunnel &&
- - To get the Routable IP, run this command and examine the EXTERNAL-IP column: <br>
-kubectl get services balanced <br>
+```
+npm run develop
+# or
+yarn develop
+```
 
- <br>
+### `start`
 
-## 🚀 Deploy to gke low cost k8s (so expose to internet)
+Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
 
-gcloud container clusters get-credentials sample-cluster --location=us-central1-f  <br>
-gcloud desafio app clusters get-credentials <br>
-#gcloud auth configure-docker <br>
-gcloud auth configure-gke <br>
-gcloud container clusters get-credentials desafio --zone us-central1-c --project strapi-384603 <br>
+```
+npm run start
+# or
+yarn start
+```
 
-kubectl apply -f /manifests/app-dev.yaml <br>
-kubectl apply -f /manifests/app-dev-service.yaml <br>
+### `build`
 
-<br>
+Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
 
-# ✨ Check out app Web GUI and API
+```
+npm run build
+# or
+yarn build
+```
 
-http://35.222.150.83/admin
+## ⚙️ Deployment
 
-$Auth-Bear =  "Waters"
+Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
 
-curl -X GET "http://35.222.150.83:1337/api/cadastros"\
- -H "Content-Type: application/json" -H "accept: application/json" -H \
- "Authorization: Bearer "
+## 📚 Learn more
 
+- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
+- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
+- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
+- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
+- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
 
-<br><br>
-# To be done
-## ⚙️ Deployment Production (MySql )
-$DOCKER_IMAGE = "jmuniz1985/app-db:latest"
-docker-compose create
-docker-compose build
-docker-compose start
-docker-compose start
-docker-compose up -d
- - Kill  containers on this image before proceed# Capturing image id via scipt as a Variable is to improve this
-docker images
-docker tag Your-Image-ID $DOCKER_IMAGE
-docker push $DOCKER_IMAGE
-echo MYSQL_ROOT_PASSWORD=strapi
+Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
 
-kubectl create deployment app-dev --image=jmuniz1985/app-db:latest <br>
-kubectl port-forward service/app-dev 443:443 <br>
- <br>
- <br><br>
-<sub>
-🤫 @!POSTMAN will only work with content-type on POST requests [Strapi is hiring](https://forum.strapi.io/t/post-url-is-not-working/18749/5) - I was sending data like this as in the tutorial but got the error (# error sending Body):  </sub>
-{
-    "title": "Test product",
-    "description": "test product description.",
-    "price": 99.99,
-    "qty": 20
-}
-Solved the error with this.
- {
-     "data": {
-    "title": "Test product",
-    "description": "test product description.",
-    "price": 99.99,
-    "qty": 20
-    }
-}
+## ✨ Community
 
-# Deploy das ferramentas no windows 11
-# Install Chocolatey 
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))                                        
-winget search Microsoft.PowerShell winget install --id Microsoft.Powershell --source winget winget install --id Microsoft.Powershell.Preview --source winget    
-choco install nodejs-lts yarn minikube docker-desktop terraform gcloudsdk  -y
+- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
+- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
+- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
 
-### Instal and configure WSL 
-[Learn more](<br> 
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-wsl --set-default-version 2
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-wget https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
-wsl_update_x64.msi
-#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-### Instal and configure compose if you receive a error
-#Start-BitsTransfer -Source "https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-Windows-x86_64.exe" -Destination $Env:ProgramFiles\Docker\docker-compose.exe)
+---
 
-
-documentation
-gdk gke
-https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials    
-docker strapi
-https://docs.strapi.io/dev-docs/installation/docker
-
-
+<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
