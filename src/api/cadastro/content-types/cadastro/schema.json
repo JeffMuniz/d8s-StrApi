@@ -11,14 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
       "type": "email"
     },
-    "cpf": {
-      "type": "biginteger"
-    },
-    "nome": {
-      "type": "string"
+    "CPF": {
+      "type": "integer"
     }
   }
 }
